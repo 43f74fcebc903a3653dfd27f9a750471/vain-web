@@ -1,0 +1,151 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { RiVoiceAiLine } from "react-icons/ri";
+import { heroContainer, herov2Item } from "@/components/ui/animations";
+import { gradientText, cardStyles } from "@/components/ui/styles";
+import { UserData } from "@/lib/actions";
+import check from "@/assets/emojis/check.png";
+
+interface VoiceMasterSectionProps {
+  comminate: UserData | null;
+}
+
+export default function VoiceMasterSection({
+  comminate,
+}: VoiceMasterSectionProps) {
+  return (
+    <motion.div
+      variants={heroContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      className="flex flex-col lg:flex-row gap-16 items-center mb-24"
+    >
+      <motion.div variants={herov2Item} className="flex-1 order-2 lg:order-1">
+        <div className="space-y-3">
+          <div
+            className="group relative bg-gradient-to-br from-vain-500/20 via-vain-200/15 to-black/80 rounded-2xl p-3 
+          shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),_0_1px_3px_rgba(0,0,0,0.3),_inset_0_-1px_1px_rgba(0,0,0,0.2)] 
+          before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/[0.02] before:to-transparent before:opacity-0
+          before:transition-opacity before:-z-10
+          after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-t after:from-black/30 after:to-transparent after:z-[-1]
+          border border-white/[0.03] backdrop-blur-sm
+          transition-all duration-500"
+          >
+            <div className="flex items-start gap-3">
+              <img
+                src={
+                  comminate?.avatar ||
+                  "https://cdn.discordapp.com/embed/avatars/0.png"
+                }
+                alt="User avatar"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-white font-medium text-sm">
+                    {comminate?.username || "User"}
+                  </span>
+                  <span className="text-white/50 text-xs">Today at 23:00</span>
+                </div>
+                <div className="text-white/90 text-sm">,voicemaster setup</div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="group relative bg-gradient-to-br from-vain-500/35 via-vain-primary/5 to-black/65 rounded-2xl p-3 
+          shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),_0_1px_3px_rgba(0,0,0,0.3),_inset_0_-1px_1px_rgba(0,0,0,0.2)] 
+          before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/[0.02] before:to-transparent before:opacity-0
+          before:transition-opacity before:-z-10
+          after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-t after:from-black/30 after:to-transparent after:z-[-1]
+          border border-white/[0.03] backdrop-blur-sm
+          transition-all duration-500"
+          >
+            <div className="flex items-start gap-3">
+              <img
+                src="https://r2.vain.bot/vain-marketing.png"
+                alt="vain's avatar"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-white font-medium text-sm">vain</span>
+                  <span className="inline-flex items-center bg-vain-primary/50 rounded px-1 h-4 text-white text-[0.625rem] font-semibold uppercase relative">
+                    <svg
+                      className="w-3 h-3 mr-1"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    APP
+                  </span>
+                  <span className="text-white/50 text-xs">Today at 23:00</span>
+                </div>
+                <div className="bg-white/[0.06] rounded-lg p-3 border-l-4 border-vain-primary">
+                  <div className="text-white/90 text-sm">
+                    <img
+                      src={check.src}
+                      alt="check"
+                      width={22}
+                      height={22}
+                      className="inline mr-1 object-contain align-bottom"
+                      style={{ height: "1.375em", width: "1.375em" }}
+                    />
+                    <span className="text-vain-primary bg-vain-primary/20 px-1 py-0.5 rounded text-xs">
+                      @b
+                    </span>
+                    : Finished setting up the VoiceMaster channels. A category
+                    and two channels have been created, you can move the
+                    channels or rename them if you want.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        variants={herov2Item}
+        className="flex-1 space-y-6 order-1 lg:order-2"
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className={cardStyles.icon}>
+            <RiVoiceAiLine
+              className="w-5 h-5 text-vain-primary"
+              strokeWidth={1}
+            />
+          </div>
+          <span className="text-sm font-medium text-vain-primary/80">
+            VoiceMaster
+          </span>
+        </div>
+        <motion.h2
+          variants={herov2Item}
+          className={`text-4xl md:text-5xl font-medium ${gradientText.primary.className}`}
+          style={gradientText.primary.style}
+        >
+          Easy setup
+        </motion.h2>
+        <motion.p
+          variants={herov2Item}
+          className="text-lg text-white/60 max-w-2xl -tracking-wide"
+        >
+          Create temporary voice channels with just one command. Perfect for
+          gaming sessions and private conversations.
+        </motion.p>
+      </motion.div>
+    </motion.div>
+  );
+}

@@ -1,0 +1,318 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: var(--card-height);
+  border-radius: var(--card-border-radius);
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition);
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-border-radius);
+  background: var(--card-gradient-before);
+  opacity: 0;
+  transition: opacity 200ms;
+  z-index: -10;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--card-border-radius);
+  background: var(--card-gradient-after);
+  z-index: -1;
+}
+
+.cardHover:hover::before {
+  opacity: 1;
+}
+
+.cardHover:hover {
+  border-color: var(--card-hover-border);
+  background: var(--card-hover-bg);
+}
+
+.cardHeader {
+  padding: 1.25rem;
+  height: 80px;
+}
+
+.cardHeaderFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardNameFlex {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.premiumIndicator {
+  flex-shrink: 0;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #fbbf24, #f59e0b);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premiumDot {
+  width: 0.375rem;
+  height: 0.375rem;
+  border-radius: 50%;
+  background: white;
+}
+
+.cardName {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.button {
+  position: relative;
+  background: var(--button-bg);
+  border-radius: 0.375rem;
+  padding: 0.375rem;
+  box-shadow: var(--button-shadow);
+  border: 1px solid var(--button-border);
+  transition: var(--button-transition);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+  background: var(--button-gradient-before);
+  opacity: 0;
+  transition: opacity 500ms;
+  z-index: -10;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+  background: var(--button-gradient-after);
+  z-index: -1;
+}
+
+.button:hover::before {
+  opacity: 1;
+}
+
+.button:hover {
+  border-color: var(--button-hover-border);
+  color: var(--button-hover-text);
+}
+
+.copyButtonCopied {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.05);
+  /* padding: 0.375rem 0.5rem; */
+}
+
+.cardDescription {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  height: 2rem;
+  overflow: hidden;
+  line-height: 1.375;
+}
+
+.cardContent {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.separator {
+  position: relative;
+  margin: 0 -1.25rem;
+  height: 1px;
+  flex-shrink: 0;
+  margin-bottom: 1rem;
+}
+
+.separator::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--card-border);
+  border-radius: 9999px;
+}
+
+.section {
+  margin-bottom: 1rem;
+}
+
+.section:last-child {
+  margin-bottom: 0;
+}
+
+.sectionTitle {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: color-mix(oklch, var(--vain-primary), transparent 20%);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.paramList {
+  display: flex;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+
+  min-height: 1.5rem;
+  align-items: flex-start;
+  user-select: none;
+}
+
+.param {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  transition: colors 200ms;
+}
+
+.param {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.375rem;
+  transition: colors 200ms;
+}
+
+.overflowText {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  padding: 0.25rem;
+}
+
+.permission {
+  color: #fbbf24;
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
+  background: rgba(251, 191, 36, 0.08);
+  border: 1px solid rgba(251, 191, 36, 0.15);
+}
+
+.alias {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.625rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.375rem;
+  transition: colors 200ms;
+}
+
+.paramRequired {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.375rem;
+  transition: colors 200ms;
+}
+
+.paramOptional {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.375rem;
+  transition: colors 200ms;
+}
+
+.noneText {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 0.125rem;
+}
+
+.popoverContent {
+  position: relative;
+  background: var(--button-bg);
+  box-shadow: var(--button-shadow);
+  border: 1px solid var(--button-border);
+  border-radius: 0.375rem;
+  padding: 0;
+}
+
+.popoverContent::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+  background: var(--button-gradient-before);
+  opacity: 0;
+  transition: opacity 500ms;
+  z-index: -10;
+}
+
+.popoverContent::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.375rem;
+  background: var(--button-gradient-after);
+  z-index: -1;
+}
+
+.popoverText {
+  color: var(--text-primary);
+  font-size: 0.75rem;
+  padding: 0.5rem;
+}
+
+.icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}

@@ -1,0 +1,152 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.content {
+  position: relative;
+  max-width: 80rem;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .content {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.heroMain {
+  flex: 1;
+  text-align: center;
+}
+
+.titleContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.logo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 1rem;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  user-select: none;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1.37;
+  letter-spacing: -0.025em;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 0;
+  margin-bottom: -0.5rem;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 4.5rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.625;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+.skeletonUsers {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.skeletonGuilds {
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.25rem;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+.numberUsers {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.numberGuilds {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .buttons {
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+  }
+}

@@ -1,0 +1,453 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  padding: 0.75rem 0.5rem;
+}
+
+.navContainer {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+}
+
+.navWrapper {
+  position: relative;
+}
+
+.navBackground {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--navbar-border-radius);
+}
+
+.navbarBase {
+  position: relative;
+  backdrop-filter: var(--navbar-backdrop-blur);
+  box-shadow:
+    var(--navbar-shadow-inset), var(--navbar-shadow-main),
+    var(--navbar-shadow-bottom);
+  border: var(--navbar-border);
+  border-radius: var(--navbar-border-radius);
+  padding: 0.25rem 0.5rem;
+  transition: all var(--navbar-transition-duration);
+}
+
+.navbarBase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--navbar-border-radius);
+  background: var(--navbar-gradient-top);
+  opacity: 0;
+  transition: opacity var(--navbar-transition-duration);
+  z-index: -10;
+}
+
+.navbarHome {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.navbarNotHome {
+  background: var(--navbar-bg-dark);
+}
+
+.navbarNotHome::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: var(--navbar-border-radius);
+  background: var(--navbar-gradient-bottom);
+  z-index: -1;
+}
+
+.navbarScrolled::before {
+  opacity: 1;
+}
+
+.navbarScrolled {
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.navLeft {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoImage {
+  border-radius: 0.5rem;
+  position: relative;
+  filter: brightness(0.8);
+}
+
+.navLinks {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navLinks {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+}
+
+.navRight {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navRight {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+}
+
+.statusLink {
+  position: relative;
+  padding: 0.5rem 1rem;
+}
+
+.statusHover {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  opacity: 0;
+  transition: all var(--navbar-transition-duration);
+}
+
+.navbarHome .statusHover {
+  background: var(--navbar-hover-bg);
+}
+
+.navbarNotHome .statusHover {
+  background: var(--navbar-bg-dark);
+  box-shadow:
+    var(--navbar-shadow-inset), var(--navbar-shadow-main),
+    var(--navbar-shadow-bottom);
+  border: var(--navbar-border);
+}
+
+.navbarNotHome .statusHover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: var(--navbar-gradient-top);
+  opacity: 0;
+  transition: opacity var(--navbar-transition-duration);
+  z-index: -10;
+}
+
+.navbarNotHome .statusHover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: var(--navbar-gradient-bottom);
+  z-index: -1;
+}
+
+.statusLink:hover .statusHover {
+  opacity: 1;
+}
+
+.statusLink:hover .statusHover::before {
+  opacity: 1;
+}
+
+.statusText {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--navbar-text-color);
+  transition: color var(--navbar-transition-duration);
+}
+
+.statusLink:hover .statusText {
+  color: var(--navbar-text-hover);
+}
+
+.divider {
+  width: 1px;
+  height: 1.5rem;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.inviteLink {
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: color-mix(oklch, var(--vain-primary), transparent 10%);
+  transition: background var(--navbar-transition-duration);
+}
+
+.inviteLink:hover {
+  background: var(--vain-primary);
+}
+
+.inviteLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--vain-primary),
+    color-mix(oklch, var(--vain-primary), transparent 10%)
+  );
+  opacity: 0;
+  transition: opacity var(--navbar-transition-duration);
+  z-index: 1;
+}
+
+.inviteLink:hover::after {
+  opacity: 1;
+}
+
+.inviteText {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--navbar-text-color);
+  transition: color var(--navbar-transition-duration);
+}
+
+.inviteLink:hover .inviteText {
+  color: white;
+}
+
+.mobileRight {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+@media (min-width: 768px) {
+  .mobileRight {
+    display: none;
+  }
+}
+
+.mobileInvite {
+  position: relative;
+  padding: 0.5rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.mobileInviteBg {
+  position: absolute;
+  inset: 0;
+  background: color-mix(oklch, var(--vain-primary), transparent 20%);
+}
+
+.mobileInviteGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--vain-primary),
+    color-mix(oklch, var(--vain-primary), transparent 20%)
+  );
+}
+
+.mobileInvite:hover .mobileInviteBg {
+  opacity: 1;
+}
+
+.mobileInvite:hover .mobileInviteGradient {
+  opacity: 1;
+}
+
+.mobileInviteText {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--vain-primary);
+}
+
+.menuButton {
+  position: relative;
+  padding: 0.625rem;
+  border-radius: 0.75rem;
+}
+
+.menuHover {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  opacity: 0;
+  transition: all var(--navbar-transition-duration);
+}
+
+.navbarHome .menuHover {
+  background: var(--navbar-hover-bg);
+}
+
+.navbarNotHome .menuHover {
+  background: var(--navbar-bg-dark);
+  box-shadow:
+    var(--navbar-shadow-inset), var(--navbar-shadow-main),
+    var(--navbar-shadow-bottom);
+  border: var(--navbar-border);
+}
+
+.navbarNotHome .menuHover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: var(--navbar-gradient-top);
+  opacity: 0;
+  transition: opacity var(--navbar-transition-duration);
+  z-index: -10;
+}
+
+.navbarNotHome .menuHover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: var(--navbar-gradient-bottom);
+  z-index: -1;
+}
+
+.menuButton:hover .menuHover {
+  opacity: 1;
+}
+
+.menuButton:hover .menuHover::before {
+  opacity: 1;
+}
+
+.menuIcon {
+  position: relative;
+  color: var(--navbar-text-color);
+  transition: color var(--navbar-transition-duration);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuButton:hover .menuIcon {
+  color: var(--navbar-text-hover);
+}
+
+.mobileMenu {
+  overflow: hidden;
+  pointer-events: auto;
+}
+
+.mobileMenuClosed {
+  height: 0;
+  opacity: 0;
+  transform: translateY(-1rem);
+  margin-top: 0;
+  min-height: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.mobileMenuOpen {
+  height: auto;
+  opacity: 1;
+  transform: translateY(0);
+  margin-top: 0.75rem;
+  min-height: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  transition: all 0.44s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.mobileMenuItems {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+}
+
+.mobileMenuItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  position: relative;
+  transition: all var(--navbar-transition-duration);
+}
+
+.navbarHome .mobileMenuItem {
+  /* No bru */
+}
+
+.navbarNotHome .mobileMenuItem {
+  background: var(--navbar-bg-dark);
+  box-shadow:
+    var(--navbar-shadow-inset), var(--navbar-shadow-main),
+    var(--navbar-shadow-bottom);
+  border: var(--navbar-border);
+}
+
+.navbarNotHome .mobileMenuItem::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  background: var(--navbar-gradient-top);
+  opacity: 0;
+  transition: opacity var(--navbar-transition-duration);
+  z-index: -10;
+}
+
+.navbarNotHome .mobileMenuItem::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.5rem;
+  background: var(--navbar-gradient-bottom);
+  z-index: -1;
+}
+
+.mobileMenuItem:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.mobileMenuItem:hover::before {
+  opacity: 1;
+}
+
+.mobileMenuLabel {
+  font-weight: 500;
+  color: rgb(228, 228, 231);
+}
+
+.mobileMenuIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

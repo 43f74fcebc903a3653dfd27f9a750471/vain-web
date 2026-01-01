@@ -1,0 +1,100 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { herov2Item, heroContainer } from "@/components/ui/animations";
+import { gradientText, cardStyles } from "@/components/ui/styles";
+import Link from "next/link";
+import { FaReplyAll, FaGifts, FaStar } from "react-icons/fa";
+import { HiCreditCard, HiCog } from "react-icons/hi2";
+import { IoMdPhotos } from "react-icons/io";
+
+const features = [
+  {
+    icon: <FaReplyAll className="w-5 h-5" strokeWidth={1} />,
+    title: "Repliers",
+    description: "Automatic responses to keywords and phrases",
+  },
+  {
+    icon: <FaGifts className="w-5 h-5" strokeWidth={1} />,
+    title: "Giveaways",
+    description: "Host engaging giveaways with custom requirements",
+  },
+  {
+    icon: <FaStar className="w-5 h-5" strokeWidth={1} />,
+    title: "Levels",
+    description: "XP system with customizable rewards and roles",
+  },
+  {
+    icon: <HiCreditCard className="w-5 h-5" strokeWidth={1} />,
+    title: "Economy",
+    description: "Virtual currency system with games and trading",
+  },
+  {
+    icon: <HiCog className="w-5 h-5" strokeWidth={1} />,
+    title: "Reaction Triggers",
+    description: "Custom actions triggered by emoji reactions",
+  },
+  {
+    icon: <IoMdPhotos className="w-5 h-5" strokeWidth={1} />,
+    title: "Media Commands",
+    description: "Image manipulation and generation tools",
+  },
+];
+
+export default function FeaturesSection() {
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div
+        variants={heroContainer}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+        className="text-center mb-16"
+      >
+        <motion.h2
+          variants={herov2Item}
+          className={`text-4xl font-medium ${gradientText.title.className} leading-[1.2] mb-4`}
+        >
+          Additional Features
+        </motion.h2>
+        <motion.p
+          variants={herov2Item}
+          className="text-lg text-white/60 max-w-2xl -tracking-wide mx-auto"
+        >
+          Discover more tools to enhance your Discord server experience
+        </motion.p>
+      </motion.div>
+
+      <motion.div
+        initial="hidden"
+        variants={herov2Item}
+        whileInView="show"
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+      >
+        {features.map((feature, i) => (
+          <motion.div
+            key={i}
+            className={`${cardStyles.base} ${cardStyles.darkCard} ${cardStyles.hoverEffect} p-6`}
+          >
+            <div className="flex items-center gap-3 mb-4">
+              <div className={cardStyles.icon}>
+                <div className="text-vain-primary">{feature.icon}</div>
+              </div>
+              <h3 className="text-lg font-medium text-white/90 drop-shadow-[0_1px_1px_rgba(204,204,255,0.03)]">
+                {feature.title}
+              </h3>
+            </div>
+            <p className="text-white/60 text-sm">{feature.description}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <motion.div className="text-center mt-10">
+        <Link href="/commands" className="text-vain-primary hover:underline">
+          ... and many more features
+        </Link>
+      </motion.div>
+    </div>
+  );
+}

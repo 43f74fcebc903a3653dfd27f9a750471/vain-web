@@ -1,0 +1,178 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { FaLastfm } from "react-icons/fa";
+import { heroContainer, herov2Item } from "@/components/ui/animations";
+import { gradientText, cardStyles } from "@/components/ui/styles";
+import { UserData } from "@/lib/actions";
+import esdeekid from "@/assets/esdeekid.jpeg";
+
+interface MusicSectionProps {
+  femeie: UserData | null;
+}
+
+export default function MusicSection({ femeie }: MusicSectionProps) {
+  return (
+    <motion.div
+      variants={heroContainer}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.3 }}
+      className="flex flex-col lg:flex-row gap-16 items-center"
+    >
+      <motion.div variants={herov2Item} className="flex-1 order-2 lg:order-1">
+        <div className="space-y-2">
+          <div
+            className="group relative bg-gradient-to-br from-vain-500/20 via-vain-200/15 to-black/80 rounded-2xl p-3 
+          shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),_0_1px_3px_rgba(0,0,0,0.3),_inset_0_-1px_1px_rgba(0,0,0,0.2)] 
+          before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/[0.02] before:to-transparent before:opacity-0
+          before:transition-opacity before:-z-10
+          after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-t after:from-black/30 after:to-transparent after:z-[-1]
+          border border-white/[0.03] backdrop-blur-sm
+          transition-all duration-500"
+          >
+            <div className="flex items-start gap-3">
+              <img
+                src={
+                  femeie?.avatar ||
+                  "https://cdn.discordapp.com/embed/avatars/0.png"
+                }
+                alt="User avatar"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-white font-medium text-sm">
+                    {femeie?.username || "User"}
+                  </span>
+                  <span className="text-white/50 text-xs">Today at 23:19</span>
+                </div>
+                <div className="text-white/90 text-sm">,fm</div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            className="group relative bg-gradient-to-br from-vain-500/35 from-20% via-vain-primary/10 via-40% to-black/70 rounded-2xl p-3.5 
+            shadow-[inset_0_1px_1px_rgba(255,255,255,0.1),_0_1px_3px_rgba(0,0,0,0.3),_inset_0_-1px_1px_rgba(0,0,0,0.2)] 
+            before:absolute before:inset-0 before:rounded-2xl before:bg-gradient-to-b before:from-white/[0.02] before:to-transparent before:opacity-0
+            before:transition-opacity before:-z-10
+            after:absolute after:inset-0 after:rounded-2xl after:bg-gradient-to-t after:from-black/30 after:to-transparent after:z-[-1]
+            border border-white/[0.03] backdrop-blur-sm
+            transition-all duration-500"
+          >
+            <div className="flex items-start gap-3">
+              <Image
+                src="https://r2.vain.bot/vain-marketing.png"
+                alt="vain's avatar"
+                width={40}
+                height={40}
+                className="w-10 h-10 rounded-full"
+              />
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-white font-medium text-sm">vain</span>
+                  <span className="inline-flex items-center bg-vain-primary/50 rounded px-1 h-4 text-white text-[0.625rem] font-semibold uppercase relative">
+                    <svg
+                      className="w-3 h-3 mr-1"
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    APP
+                  </span>
+                  <span className="text-white/50 text-xs">Today at 23:19</span>
+                </div>
+                <div className="bg-white/[0.06] rounded-lg border-l-4 border-vain-primary p-3">
+                  <div className="flex items-start justify-between">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2 mb-1">
+                        <img
+                          src={
+                            femeie?.avatar ||
+                            "https://cdn.discordapp.com/embed/avatars/0.png"
+                          }
+                          alt="User avatar"
+                          width={20}
+                          height={20}
+                          className="w-5 h-5 rounded-full"
+                        />
+                        <a
+                          href="https://www.last.fm/user/bhopheker"
+                          className="text-white font-medium text-sm hover:underline"
+                        >
+                          {femeie?.username || "bhopheker"}
+                        </a>
+                      </div>
+                      <div className="mb-3">
+                        <h3 className="text-white text-lg font-semibold mb-1">
+                          <a
+                            href="https://www.last.fm/music/EsDeeKid/_/Tartan"
+                            className="hover:underline"
+                          >
+                            Tartan
+                          </a>
+                        </h3>
+                        <div className="text-white/90 text-sm">
+                          <strong>EsDeeKid</strong> •{" "}
+                          <em className="italic">Rebel</em>
+                        </div>
+                      </div>
+                      <div className="text-white/60 text-xs">
+                        46 artist scrobbles · 43 album scrobbles · 97956 total
+                        scrobbles
+                      </div>
+                    </div>
+                    <img
+                      src={esdeekid.src}
+                      width={80}
+                      height={80}
+                      alt="esdeekid"
+                      className="w-20 h-20 rounded ml-3"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      <motion.div
+        variants={herov2Item}
+        className="flex-1 space-y-6 order-1 lg:order-2"
+      >
+        <div className="flex items-center gap-3 mb-6">
+          <div className={cardStyles.icon}>
+            <FaLastfm className="w-5 h-5 text-vain-primary" strokeWidth={1} />
+          </div>
+          <span className="text-sm font-medium text-vain-primary/80">
+            LastFM Integration
+          </span>
+        </div>
+        <motion.h2
+          variants={herov2Item}
+          className={`text-4xl md:text-5xl font-medium ${gradientText.primary.className}`}
+          style={gradientText.primary.style}
+        >
+          Music tracking
+        </motion.h2>
+        <motion.p
+          variants={herov2Item}
+          className="text-lg text-white/60 max-w-2xl -tracking-wide"
+        >
+          Connect your Last.fm account to track listening history, compete for
+          artist crowns, and share your music taste with friends.
+        </motion.p>
+      </motion.div>
+    </motion.div>
+  );
+}
